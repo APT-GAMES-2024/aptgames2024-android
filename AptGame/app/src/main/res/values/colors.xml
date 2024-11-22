@@ -3,9 +3,14 @@
     <color name="cream">#FFFDF9E4</color>
     <color name="steel_blue">#FF6693B2</color>
     <color name="navy_blue">#FF314F73</color>
-    <color name="teal">#FF2E8196 </color>
+    <color name="teal">#FF2E8196</color>
     <color name="gray">#FF8A8A8A</color>
     <color name="light_gray">#FFADADAD</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 </resources>
