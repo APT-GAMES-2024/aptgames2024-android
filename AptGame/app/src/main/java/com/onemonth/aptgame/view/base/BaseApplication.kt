@@ -1,7 +1,7 @@
 package com.onemonth.aptgame.view.base
 
 import android.app.Application
-import com.google.firebase.installations.BuildConfig
+import com.onemonth.aptgame.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -10,8 +10,9 @@ class BaseApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
         if (BuildConfig.DEBUG) {
-            Timber.plant()
+            Timber.plant(Timber.DebugTree())
         }
     }
 }
