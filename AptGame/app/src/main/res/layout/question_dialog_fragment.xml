@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/outer_card"
+        android:layout_width="314dp"
+        android:layout_height="177dp"
+        android:backgroundTint="#FDF9E4"
+        app:cardCornerRadius="16.27dp"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button1">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/inner_card"
+            android:layout_width="294dp"
+            android:layout_height="157dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#314F73"
+            app:cardCornerRadius="16.27dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="251dp"
+        android:layout_height="28.73dp"
+        android:background="@drawable/button_selector"
+        app:layout_constraintTop_toBottomOf="@id/outer_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="251dp"
+        android:layout_height="28.73dp"
+        android:background="@drawable/button_selector"
+        app:layout_constraintTop_toBottomOf="@id/button1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
