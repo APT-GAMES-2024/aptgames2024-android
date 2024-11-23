@@ -59,6 +59,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.firestore)
+    implementation(libs.firebase.remote)
 
     //viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
