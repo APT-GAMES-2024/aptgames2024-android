@@ -16,8 +16,11 @@
         android:theme="@style/Theme.AptGame"
         tools:targetApi="31">
         <activity
+            android:name=".view.main.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.splash.SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
