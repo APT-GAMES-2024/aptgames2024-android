@@ -1,6 +1,7 @@
 package com.onemonth.aptgame.view.splash
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.google.firebase.ktx.Firebase
@@ -11,6 +12,7 @@ import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.google.gson.Gson
 import com.onemonth.aptgame.R
 import com.onemonth.aptgame.databinding.ActivitySplashBinding
+import com.onemonth.aptgame.service.MusicService
 import com.onemonth.aptgame.view.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -29,7 +31,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     }
 
     private fun setOnView() {
-
     }
 
     private suspend fun setOnRemoteConfig() = suspendCancellableCoroutine { continuation ->
