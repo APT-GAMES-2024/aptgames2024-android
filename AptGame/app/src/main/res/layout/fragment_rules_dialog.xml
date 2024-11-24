@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        tools:context=".view.rule.RulesDialog">
+
+        <ImageView
+            android:id="@+id/iv_rule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/ic_system_rule"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/cl_rule_text_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shape_rounded_cream_r12"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_rule">
+
+            <TextView
+                style="@style/text_bold_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Write a question A OR B."
+                android:textColor="@color/black" />
+
+            <TextView
+                style="@style/text_normal_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Questions are free to choose a variety of topics, such as friends' secrets, current trends, and fashion."
+                android:textColor="@color/gray" />
+
+            <TextView
+                style="@style/text_bold_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="2. Forwarding Questions"
+                android:textColor="@color/black" />
+
+            <TextView
+                style="@style/text_normal_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="You can send these questions to your friends or acquaintances and wait for their responses."
+                android:textColor="@color/gray" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_game_start"
+            style="@style/text_normal_20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="52dp"
+            android:layout_marginVertical="17dp"
+            android:background="@drawable/shape_navyblue_r20"
+            android:text="GAME START"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_rule_text_box" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_request_lit_question"
+            style="@style/text_normal_20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="52dp"
+            android:layout_marginVertical="17dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_teal_r20"
+            android:text="Request lit Questions"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_game_start" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_popular_lit_question"
+            style="@style/text_normal_20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="52dp"
+            android:layout_marginVertical="17dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_teal_r20"
+            android:text="Popular lit Questions"
+            android:textColor="@color/white"
+            android:drawableEnd="@drawable/ic_system_fire"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_request_lit_question" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

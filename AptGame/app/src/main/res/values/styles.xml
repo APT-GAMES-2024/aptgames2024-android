@@ -9,8 +9,42 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="text_bold_14">
+        <item name="android:fontFamily">@font/dung_geun_mo</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_normal_20">
+        <item name="android:fontFamily">@font/dung_geun_mo</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="text_normal_14">
         <item name="android:fontFamily">@font/dung_geun_mo</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppBaseTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="FullScreenDialog" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="TransparentDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 </resources>
