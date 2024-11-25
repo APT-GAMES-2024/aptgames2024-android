@@ -2,7 +2,9 @@
 activityKtx = "1.9.3"
 agp = "8.7.2"
 converterGson = "2.11.0"
+firebaseAnalyticsKtx = "22.1.2"
 firebaseBom = "33.6.0"
+firebaseDynamicLinksKtx = "22.1.0"
 fragmentKtx = "1.8.5"
 hiltAndroid = "2.52"
 hiltAndroidCompiler = "2.51.1"
@@ -27,7 +29,9 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterGson" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version.ref = "firebaseAnalyticsKtx" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-dynamic-links-ktx = { module = "com.google.firebase:firebase-dynamic-links-ktx", version.ref = "firebaseDynamicLinksKtx" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 firebase-remote = { module = "com.google.firebase:firebase-config" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }

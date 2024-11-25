@@ -44,6 +44,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
+                        style="@style/text_normal_14"
                         android:text="pizza vs burger"
                         android:textSize="24sp"
                         android:textAlignment="center"
@@ -69,15 +70,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
+                        style="@style/text_normal_20"
                         android:gravity="center"
-                        android:hint="텍스트를 입력하세요"
+                        android:hint="Please enter text"
                         android:textColorHint="@color/white"
                         android:inputType="textMultiLine"
                         android:maxLength="500"
                         android:minHeight="30dp"
                         android:textColor="#314F73"
                         android:textSize="14sp"
-                        android:padding="8dp"/>  <!-- padding 추가 -->
+                        android:padding="8dp"/>
 
                 </androidx.cardview.widget.CardView>
 
@@ -85,13 +87,14 @@
 
         </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button1"
             android:layout_width="314dp"
             android:layout_height="37dp"
-            android:background="@drawable/button_selector"
+            style="@style/text_normal_20"
             android:textColor="@color/black"
             android:text="nickname's something"
+            android:background="@drawable/button_selector2"
             app:layout_constraintTop_toBottomOf="@id/outer_card"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -129,12 +132,14 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <!-- 긴 버튼 -->
-            <com.google.android.material.button.MaterialButton
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/long_button"
                 android:layout_width="200dp"
                 android:layout_height="48dp"
+                style="@style/text_normal_20"
                 android:text="SUBMIT"
+                android:textColor="@android:color/white"
                 android:background="@drawable/button_selector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

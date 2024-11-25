@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.remote)
+    implementation (libs.firebase.dynamic.links.ktx)
 
     //viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
