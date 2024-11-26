@@ -51,5 +51,12 @@
             app:layout_constraintStart_toStartOf="@id/cl_shop"
             app:layout_constraintTop_toTopOf="@id/cl_shop" />
 
+        <FrameLayout
+            android:id="@+id/fl_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_shop" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

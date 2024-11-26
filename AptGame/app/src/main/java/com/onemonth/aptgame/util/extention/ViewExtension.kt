@@ -1,5 +1,6 @@
 package com.onemonth.aptgame.util.extention
 
+import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
@@ -14,6 +15,9 @@ fun RecyclerView.disableItemAnimator() {
     (this.itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
 }
 
+fun Int.dpToPx(context: Context): Int {
+    return (this * context.resources.displayMetrics.density).toInt()
+}
 
 fun View.setOnSingleClickListener(onClickAction: (View) -> Unit) {
     val coroutineScope = CoroutineScope(Dispatchers.Main)
