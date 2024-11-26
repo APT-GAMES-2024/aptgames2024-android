@@ -13,7 +13,7 @@
             android:id="@+id/iv_rule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="40dp"
             android:src="@drawable/ic_system_rule"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="52dp"
-            android:layout_marginVertical="17dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_teal_r20"
             android:text="Request lit Questions"
@@ -94,22 +93,42 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_game_start" />
 
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_popular_lit_question"
-            style="@style/text_normal_20"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="52dp"
-            android:layout_marginVertical="17dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_teal_r20"
-            android:text="Popular lit Questions"
-            android:textColor="@color/white"
-            android:drawableEnd="@drawable/ic_system_fire"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_request_lit_question" />
+            android:paddingVertical="13dp"
+            app:layout_constraintEnd_toEndOf="@id/btn_request_lit_question"
+            app:layout_constraintStart_toStartOf="@id/btn_request_lit_question"
+            app:layout_constraintTop_toBottomOf="@id/btn_request_lit_question">
+
+            <TextView
+                android:id="@+id/btn_text"
+                style="@style/text_normal_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Popular lit Questions"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fire_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_system_fire"
+                app:layout_constraintBottom_toBottomOf="@id/btn_text"
+                app:layout_constraintStart_toEndOf="@id/btn_text"
+                app:layout_constraintTop_toTopOf="@id/btn_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
