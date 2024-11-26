@@ -50,19 +50,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun showFragment(dialog: DialogFragment) {
-        currentShowDialog?.dismiss()
-        lastShowDialog = currentShowDialog
+        if (currentShowDialog != null)
+            currentShowDialog?.dismiss()
         if (!dialog.isAdded) {
+            lastShowDialog = currentShowDialog
+            currentShowDialog = dialog
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_fragment, dialog, "tag")
                 .addToBackStack(null)
                 .commit()
-            currentShowDialog = dialog
         }
     }
 
     private fun resumeShowLastDialog() {
-        lastShowDialog?.show(this.supportFragmentManager, "tag")
+        currentShowDialog?.dismiss()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_fragment, lastShowDialog ?: return, "tag")
+            .addToBackStack(null)
+            .commit()
+        val lastDialog = lastShowDialog
+        lastShowDialog = currentShowDialog
+        currentShowDialog = lastDialog
     }
 
     private fun setOnListener() {
