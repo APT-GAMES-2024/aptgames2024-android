@@ -55,6 +55,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //view
+    implementation(libs.recycler)
+
     // Import the Firebase BoM
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
@@ -79,6 +82,9 @@ dependencies {
 
     //timber
     implementation(libs.timber)
+
+    //glide
+    implementation(libs.glide)
 
 
 }

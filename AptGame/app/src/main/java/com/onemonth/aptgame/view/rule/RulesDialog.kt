@@ -5,7 +5,9 @@ import android.view.View
 import com.onemonth.aptgame.R
 import com.onemonth.aptgame.databinding.FragmentRulesDialogBinding
 import com.onemonth.aptgame.view.base.BaseDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RulesDialog : BaseDialogFragment<FragmentRulesDialogBinding>(R.layout.fragment_rules_dialog) {
 
     override fun getTheme(): Int = R.style.TransparentDialogTheme
