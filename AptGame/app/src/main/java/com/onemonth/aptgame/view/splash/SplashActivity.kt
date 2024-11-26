@@ -14,6 +14,7 @@ import com.onemonth.aptgame.R
 import com.onemonth.aptgame.databinding.ActivitySplashBinding
 import com.onemonth.aptgame.util.extention.repeatOnStarted
 import com.onemonth.aptgame.view.base.BaseActivity
+import com.onemonth.aptgame.view.base.BaseViewModel
 import com.onemonth.aptgame.view.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -27,9 +28,11 @@ import kotlin.coroutines.resume
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
 
     private val splashViewModel: SplashViewModel by viewModels()
+    private var deviceId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setOnDeviceId()
         isExistUserByCurrentDevice()
         setOnView()
         setOnObserver()
@@ -38,33 +41,58 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         }
     }
 
+    @SuppressLint("HardwareIds")
+    private fun setOnDeviceId() {
+        deviceId = Settings.Secure.getString(
+            binding.root.context.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+    }
+
     private fun setOnView() {
-        lifecycleScope.launch {
-            //테스트로 3초 후 메인으로 이동
-            delay(3000)
-            startActivity(Intent(binding.root.context, MainActivity::class.java))
-            finish()
-        }
+
     }
 
     private fun isExistUserByCurrentDevice() {
-
+        splashViewModel.isExistUser(deviceId = deviceId ?: return)
     }
 
     private fun setOnObserver() {
         repeatOnStarted {
             splashViewModel.createUserFlow.collectLatest {
-                println("테스트 유저 생성 완료")
                 //이후 로직 진행
+                lifecycleScope.launch {
+                    //테스트로 2초 후 메인으로 이동
+                    delay(2000)
+                    startActivity(Intent(binding.root.context, MainActivity::class.java))
+                    finish()
+                }
             }
         }
 
         repeatOnStarted {
-            splashViewModel.isExistUserFlow.collectLatest {
-                println("이미 유저 존재함")
+            splashViewModel.isExistUserFlow.collectLatest { result ->
+
                 //존재 = 생성 x 이후 로직 진행 / 존재 != 생성 o
-                if (false) {
-                    createUser()
+                when (result) {
+                    is BaseViewModel.Result.Success -> {
+                        if (result.data) {
+                            //이미 계정 있음
+                            lifecycleScope.launch {
+                                //테스트로 2초 후 메인으로 이동
+                                delay(2000)
+                                startActivity(Intent(binding.root.context, MainActivity::class.java))
+                                finish()
+                            }
+                        } else {
+                            //생성
+                            createUser()
+                        }
+                    }
+
+                    else -> {
+                        //에러
+                    }
                 }
             }
         }
@@ -72,12 +100,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
     @SuppressLint("HardwareIds")
     private fun createUser() {
-        val deviceId = Settings.Secure.getString(
-            binding.root.context.contentResolver,
-            Settings.Secure.ANDROID_ID
-        )
-
-        splashViewModel.createUser(deviceId = deviceId)
+        splashViewModel.createUser(deviceId = deviceId ?: return)
     }
 
     private suspend fun setOnRemoteConfig() = suspendCancellableCoroutine { continuation ->

@@ -21,8 +21,6 @@ class SplashViewModel @Inject constructor(private val userRepository: UserReposi
     private val _isExistUserFlow = MutableEventFlow<Result<Boolean>>()
     val isExistUserFlow = _isExistUserFlow.asEventFlow()
 
-
-
     fun createUser(deviceId: String) {
         viewModelScope.launch {
             kotlin.runCatching {
@@ -37,6 +35,18 @@ class SplashViewModel @Inject constructor(private val userRepository: UserReposi
                 _createUserFlow.emit(Result.Success(isDone))
             }.onFailure {
                 _createUserFlow.emit(Result.Error(it))
+            }
+        }
+    }
+
+    fun isExistUser(deviceId: String) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                userRepository.isExistUserData(deviceId = deviceId)
+            }.onSuccess { isExist ->
+                _isExistUserFlow.emit(Result.Success(isExist))
+            }.onFailure {
+                _isExistUserFlow.emit(Result.Error(it))
             }
         }
     }

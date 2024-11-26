@@ -14,7 +14,7 @@
             style="@style/text_bold_34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="50dp"
             android:text="APT CARD SHOP"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
