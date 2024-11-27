@@ -1,15 +1,35 @@
 package com.onemonth.aptgame.view.shop
 
+import androidx.lifecycle.viewModelScope
 import com.onemonth.aptgame.R
 import com.onemonth.aptgame.model.ShopModel
 import com.onemonth.aptgame.repository.UserRepository
+import com.onemonth.aptgame.util.flow.MutableEventFlow
+import com.onemonth.aptgame.util.flow.asEventFlow
 import com.onemonth.aptgame.view.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ShopViewModel @Inject constructor(private val userRepository: UserRepository) :
     BaseViewModel() {
+
+    private val _buyAptCardFlow = MutableEventFlow<Boolean>()
+    val buyAptCardFlow = _buyAptCardFlow.asEventFlow()
+
+
+    fun buyAPTCard(aptCard: ShopModel) {
+        viewModelScope.launch {
+            runCatching {
+                userRepository.updateUserCardData(aptCardId = aptCard.aptCardId.toString())
+            }.onSuccess {
+                _buyAptCardFlow.emit(true)
+            }.onFailure {
+                _buyAptCardFlow.emit(false)
+            }
+        }
+    }
 
 
     fun getShopData(): List<ShopModel> {

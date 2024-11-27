@@ -12,6 +12,8 @@ import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.onemonth.aptgame.R
 import com.onemonth.aptgame.databinding.ActivitySplashBinding
+import com.onemonth.aptgame.model.UserModel
+import com.onemonth.aptgame.model.user.UserData
 import com.onemonth.aptgame.util.extention.repeatOnStarted
 import com.onemonth.aptgame.view.base.BaseActivity
 import com.onemonth.aptgame.view.base.BaseViewModel
@@ -47,6 +49,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
             binding.root.context.contentResolver,
             Settings.Secure.ANDROID_ID
         )
+
+        UserData.setUserData(UserModel(deviceId = deviceId, createAt = null, point = null, aptCards = null))
     }
 
     private fun setOnView() {
