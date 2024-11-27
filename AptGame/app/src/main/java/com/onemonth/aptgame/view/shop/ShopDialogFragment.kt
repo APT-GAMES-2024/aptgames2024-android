@@ -2,6 +2,8 @@ package com.onemonth.aptgame.view.shop
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.onemonth.aptgame.R
 import com.onemonth.aptgame.databinding.FragmentShopDialogBinding
 import com.onemonth.aptgame.util.extention.disableItemAnimator
@@ -14,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ShopDialogFragment(val dismissCallback: () -> Unit) :
     BaseDialogFragment<FragmentShopDialogBinding>(R.layout.fragment_shop_dialog) {
 
-    override fun getTheme(): Int = R.style.DimDialogTheme
+    private val shopViewModel: ShopViewModel by viewModels()
 
     private val shopItemAdapter by lazy {
         ShopItemAdapter(callback = { searchItem ->
@@ -32,7 +34,13 @@ class ShopDialogFragment(val dismissCallback: () -> Unit) :
         binding.rvList.apply {
             adapter = shopItemAdapter
             disableItemAnimator()
+            layoutManager = GridLayoutManager(binding.root.context, 3, GridLayoutManager.VERTICAL, false)
         }
+        setOnAdapter()
+    }
+
+    private fun setOnAdapter() {
+        shopItemAdapter.submitList(shopViewModel.getShopData())
     }
 
     private fun setOnListener() {
