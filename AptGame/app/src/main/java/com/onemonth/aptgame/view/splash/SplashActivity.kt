@@ -34,7 +34,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         //디바이스 아이디 -> db에 해당 device id 를 가진 유저가 있는지 탐색
         setOnDeviceId()
         isExistUserByCurrentDevice()
