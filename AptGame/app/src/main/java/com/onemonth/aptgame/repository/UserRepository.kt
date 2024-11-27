@@ -55,4 +55,15 @@ class UserRepository @Inject constructor(private val db: FirebaseFirestore) {
             continuation.resumeWithException(it)
         }
     }
+
+    suspend fun getUserData(deviceId: String) =
+        suspendCancellableCoroutine { continaution ->
+            db.collection("User").document(deviceId).get()
+                .addOnCompleteListener {
+                    val userData = it.result.toObject(UserModel::class.java)
+                    continaution.safeResume(userData ?: return@addOnCompleteListener)
+                }.addOnFailureListener {
+                    continaution.resumeWithException(it)
+                }
+        }
 }
