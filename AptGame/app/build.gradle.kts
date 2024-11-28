@@ -4,6 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -64,6 +65,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.remote)
     implementation (libs.firebase.dynamic.links.ktx)
+
 
     //viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

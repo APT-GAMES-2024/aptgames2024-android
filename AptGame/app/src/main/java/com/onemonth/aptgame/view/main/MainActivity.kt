@@ -1,6 +1,7 @@
 package com.onemonth.aptgame.view.main
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.DialogFragment
 import com.bumptech.glide.Glide
 import com.onemonth.aptgame.R
@@ -15,6 +16,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     lateinit var shopDialog: ShopDialogFragment
     private var lastShowDialog: DialogFragment? = null
+    private var currentShowDialog: DialogFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         setOnView()
         setOnListener()
+        backPressedDispatcher()
+    }
+
+    private fun backPressedDispatcher() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                //팝업을 끄는 대신 이전 팝업 보여주기
+                showFragment(lastShowDialog ?: return)
+            }
+        })
     }
 
     private fun setOnView() {
@@ -38,18 +50,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun showFragment(dialog: DialogFragment) {
-        lastShowDialog?.dismiss()
+        if (currentShowDialog != null)
+            currentShowDialog?.dismiss()
         if (!dialog.isAdded) {
+            lastShowDialog = currentShowDialog
+            currentShowDialog = dialog
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_fragment, dialog, "tag")
                 .addToBackStack(null)
                 .commit()
-            lastShowDialog = dialog
         }
     }
 
     private fun resumeShowLastDialog() {
-        lastShowDialog?.show(this.supportFragmentManager, "tag")
+        currentShowDialog?.dismiss()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_fragment, lastShowDialog ?: return, "tag")
+            .addToBackStack(null)
+            .commit()
+        val lastDialog = lastShowDialog
+        lastShowDialog = currentShowDialog
+        currentShowDialog = lastDialog
     }
 
     private fun setOnListener() {
