@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/outer_card"
+            android:layout_width="314dp"
+            android:layout_height="220dp"
+            android:backgroundTint="@color/cream"
+            app:cardCornerRadius="16.27dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/inner_card"
+                    android:layout_width="294dp"
+                    android:layout_height="157dp"
+                    android:backgroundTint="#314F73"
+                    app:cardCornerRadius="16.27dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        style="@style/text_normal_14"
+                        android:text="pizza vs burger"
+                        android:textSize="24sp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:scrollbars="vertical"
+                        android:layout_gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="294dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/steel_blue"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/inner_card"
+                    app:layout_constraintStart_toStartOf="@id/inner_card"
+                    app:layout_constraintEnd_toEndOf="@id/inner_card">
+
+                    <EditText
+                        android:id="@+id/textbox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        style="@style/text_normal_20"
+                        android:gravity="center"
+                        android:hint="Please enter text"
+                        android:textColorHint="@color/white"
+                        android:inputType="textMultiLine"
+                        android:maxLength="500"
+                        android:minHeight="30dp"
+                        android:textColor="#314F73"
+                        android:textSize="14sp"
+                        android:padding="8dp"/>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button1"
+            android:layout_width="314dp"
+            android:layout_height="37dp"
+            style="@style/text_normal_20"
+            android:textColor="@color/black"
+            android:text="nickname's something"
+            android:background="@drawable/button_selector2"
+            app:layout_constraintTop_toBottomOf="@id/outer_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="314dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button1">
+
+
+            <ImageView
+                android:id="@+id/square_button1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/button_selector"
+                android:src="@drawable/ic_share"
+                android:padding="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/square_button2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/button_selector"
+                android:src="@drawable/ic_share"
+                android:padding="7dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/square_button1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/long_button"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                style="@style/text_normal_20"
+                android:text="SUBMIT"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_selector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
