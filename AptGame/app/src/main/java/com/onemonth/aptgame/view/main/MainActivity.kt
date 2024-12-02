@@ -1,5 +1,6 @@
 package com.onemonth.aptgame.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.DialogFragment
@@ -25,8 +26,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             resumeShowLastDialog()
         })
 
-        //rules로 첫 화면 초기화
-        showFragment(RulesDialog())
+        // 공유 인텐트 처리
+        if (intent?.action == Intent.ACTION_SEND) {
+            val sharedText = intent.getStringExtra(Intent.EXTRA_TEXT)
+            val questionText = extractQuestionFromSharedText(sharedText)
+
+            // 공유된 질문이 있는 경우 RulesDialog에 전달
+            showFragment(RulesDialog.newInstance(questionText))
+        } else {
+            // 일반적인 앱 실행
+            showFragment(RulesDialog.newInstance())
+        }
 
         setOnView()
         setOnListener()
@@ -40,6 +50,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 showFragment(lastShowDialog ?: return)
             }
         })
+    }
+
+    private fun extractQuestionFromSharedText(sharedText: String?): String? {
+        return sharedText?.let {
+            val pattern = "Question:\\s*(.+)\\nClick".toRegex()
+            pattern.find(it)?.groupValues?.get(1)
+        }
     }
 
     private fun setOnView() {
@@ -80,4 +97,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
         }
     }
+
+    // Activity 재시작 시 인텐트 처리를 위한 메소드
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+
+        // 새로운 공유 인텐트 처리
+        if (intent?.action == Intent.ACTION_SEND) {
+            val sharedText = intent.getStringExtra(Intent.EXTRA_TEXT)
+            val questionText = extractQuestionFromSharedText(sharedText)
+
+            showFragment(RulesDialog.newInstance(questionText))
+        }
+    }
 }
+
