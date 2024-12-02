@@ -99,6 +99,6 @@ class AnswerDialogFragment : DialogFragment() {
     }
 
     companion object {
-        fun newInstance() = AnswerDialogFragment()
+        fun newInstance(sharedQuestionText: String) = AnswerDialogFragment()
     }
 }

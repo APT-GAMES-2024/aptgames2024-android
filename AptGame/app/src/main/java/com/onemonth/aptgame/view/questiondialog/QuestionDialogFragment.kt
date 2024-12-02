@@ -52,7 +52,7 @@ class QuestionDialogFragment : DialogFragment() {
         val intent = Intent(Intent.ACTION_SEND_MULTIPLE)
         intent.type = "text/plain"
 
-        val appUrl = "https://yourdomain.com/question"  // 앱이나 웹사이트 URL
+        val appUrl = "https://apt.com/question"
         val content = "A new question has arrived!\n" +
                 "Question: $questionText\n" +
                 "Click here to check it out!"
