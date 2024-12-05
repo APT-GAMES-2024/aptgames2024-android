@@ -89,6 +89,8 @@ dependencies {
     //glide
     implementation(libs.glide)
 
+    //google
+    implementation (libs.generativeai)
 
 }
 
