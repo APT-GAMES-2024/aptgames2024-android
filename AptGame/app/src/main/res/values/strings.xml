@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AptGame</string>
+    <string name="format_points">%d pt</string>
+    <string name="next">Next</string>
+    <string name="confirm">Confirm</string>
+    <string name="result_point_description">Get points!\nShare it with your friends and collect your APT card.</string>
+    <string name="result_point_share">Sharing with friends</string>
+    <string name="result_answer_title">ANSWERS</string>
 </resources>
